@@ -1,6 +1,6 @@
 {:paths   ["src" "resources"]
- :deps    {clj-http-lite {:git/url "https://github.com/borkdude/clj-http-lite"
-                          :sha     "f44ebe45446f0f44f2b73761d102af3da6d0a13e"}}
+ :deps    {clj-http-lite {:git/url "https://github.com/babashka/clj-http-lite"
+                          :sha     "a75db6db60eadcf609104a979b29499f54b3665b"}}
  :aliases {:dev
            {:extra-paths ["dev" "classes"]
             :extra-deps  {cheshire {:mvn/version "5.8.1"}}}}}

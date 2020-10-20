@@ -1,5 +1,5 @@
 stack = babashka-lambda-layer
-s3-bucket = my-bucket
+s3-bucket = fh-search
 
 build:
 	docker build --target BUILDER -t babashka-lambda-archiver .
@@ -24,5 +24,5 @@ deploy: package
 publish-layer: build
 	aws lambda publish-layer-version \
 		--layer-name babashka-runtime \
-		--principal "*" \
+		--compatible-runtimes provided.al2 \
 		--zip-file fileb://babashka-runtime.zip

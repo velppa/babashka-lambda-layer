@@ -11,7 +11,7 @@ Resources:
       ContentUri: s3://pointer2-labs/babashka/faf03056b7a2094d14c189b46aea9af2
       CompatibleRuntimes:
         - provided
-      LicenseInfo: https://github.com/dainiusjocas/babashka-lambda-layer/blob/master/LICENSE
+      LicenseInfo: https://github.com/pavel-popov/babashka-lambda-layer/blob/master/LICENSE
       RetentionPolicy: Retain
 
 Outputs:
@@ -24,12 +24,12 @@ Metadata:
     Name: babashka-runtime-lambda-layer
     Description: >
       Babashka lambda runtime packaged as a Lambda layer.
-      Bundles Babashka 0.0.78.
-    Author: Dainius Jocas
+      Bundles Babashka 0.2.2.
+    Author: Pavel Popov
     SpdxLicenseId: Apache-2.0
     LicenseUrl: LICENSE
     ReadmeUrl: README.md
     Labels: ['layer', 'babashka', 'lambda', 'clojure']
-    HomePageUrl: https://github.com/dainiusjocas/babashka-lambda-layer
+    HomePageUrl: https://github.com/pavel-popov/babashka-lambda-layer
     SemanticVersion: 0.1.0
-    SourceCodeUrl: https://github.com/dainiusjocas/babashka-lambda-layer
+    SourceCodeUrl: https://github.com/pavel-popov/babashka-lambda-layer
