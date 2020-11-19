@@ -15,7 +15,7 @@
   (http/request
    {:method  :post
     :url     (str "http://" runtime-api "/2018-06-01/runtime/invocation/" request-id "/response")
-    :body    response-body
+    :body    (json/encode response-body)
     :headers {"Content-Type" "application/json"}}))
 
 
@@ -23,10 +23,11 @@
   (http/request
    {:method  :post
     :url     (str "http://" runtime-api "/2018-06-01/runtime/invocation/" request-id "/error")
-    :body    {:errorType (str (or (:error error-body) "unknown"))
-              :errorMessage (str (when (:error error-body)
-                                   (dissoc error-body :error)
-                                   error-body))}
+    :body    (json/encode
+              {:errorType (str (or (:error error-body) "unknown"))
+               :errorMessage (json/encode (if (:error error-body)
+                                            (dissoc error-body :error)
+                                            error-body))})
     :headers {"Content-Type" "application/json"}}))
 
 
@@ -41,7 +42,7 @@
     (loop [req (get-lambda-invocation-request runtime-api)]
       (let [request-id (get (get req :headers) "lambda-runtime-aws-request-id")]
         (when-let [error (get req :error)]
-          (send-error runtime-api request-id (str error))
+          (send-error runtime-api request-id req)
           (throw (Exception. (str error))))
         (try
           (let [response (request->response (get req :body) handler-fn context)
