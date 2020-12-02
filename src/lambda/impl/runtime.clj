@@ -34,7 +34,7 @@
 (defn- request->response [request-body handler-fn context]
   (let [decoded-request (json/decode request-body true)
         event (or (-> decoded-request :body (json/decode true)) decoded-request)]
-    (handler-fn event (into {} context))))
+    (handler-fn event (->> context (map (fn [[k v]] [(keyword k) v])) (into {})))))
 
 
 (defn init [handler-fn context]
