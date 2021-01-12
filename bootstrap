@@ -2,5 +2,5 @@
 
 set -euo pipefail
 
-export BABASHKA_DISABLE_PIPE_SIGNAL_HANDLER="true"
+export BABASHKA_DISABLE_SIGNAL_HANDLERS="true"
 babashka

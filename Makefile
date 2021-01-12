@@ -6,9 +6,11 @@ build:
 	docker create --name build babashka-lambda-archiver
 	docker cp build:/var/task/babashka-runtime.zip babashka-runtime.zip
 
-deploy: build
+publish:
 	aws lambda publish-layer-version \
 		--layer-name babashka-runtime \
 		--description "commit $(GIT_COMMIT)" \
 		--compatible-runtimes provided.al2 \
 		--zip-file fileb://babashka-runtime.zip
+
+deploy: build publish
