@@ -1,4 +1,4 @@
-FROM borkdude/babashka:0.2.8 as BABASHKA
+FROM babashka/babashka:0.2.8 as BABASHKA
 
 FROM clojure:openjdk-16-tools-deps-slim-buster as BUILDER
 RUN apt-get update && apt-get install -y zip curl
