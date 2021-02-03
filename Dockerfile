@@ -1,4 +1,4 @@
-FROM borkdude/babashka:0.2.6 as BABASHKA
+FROM borkdude/babashka:0.2.8 as BABASHKA
 
 FROM clojure:openjdk-16-tools-deps-slim-buster as BUILDER
 RUN apt-get update && apt-get install -y zip curl
@@ -13,7 +13,7 @@ COPY bootstrap bootstrap
 COPY deps.edn deps.edn
 
 RUN cd bin && \
-    curl -L -o pod-babashka-aws.zip https://github.com/babashka/pod-babashka-aws/releases/download/v0.0.3/pod-babashka-aws-0.0.3-linux-amd64.zip && \
+    curl -L -o pod-babashka-aws.zip https://github.com/babashka/pod-babashka-aws/releases/download/v0.0.5/pod-babashka-aws-0.0.5-linux-amd64.zip && \
     unzip pod-babashka-aws.zip && \
     rm pod-babashka-aws.zip
 
