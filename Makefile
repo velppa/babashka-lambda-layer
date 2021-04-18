@@ -1,7 +1,7 @@
 GIT_COMMIT = $(shell git rev-parse --short HEAD)
 
 build:
-	docker build --target BUILDER -t babashka-lambda-archiver .
+	docker build --quiet --target BUILDER -t babashka-lambda-archiver .
 	docker rm build || true
 	docker create --name build babashka-lambda-archiver
 	docker cp build:/var/task/babashka-runtime.zip babashka-runtime.zip
