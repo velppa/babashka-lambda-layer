@@ -1,6 +1,9 @@
 {:paths   ["src" "resources"]
- :deps    {clj-http-lite {:git/url "https://github.com/babashka/clj-http-lite"
-                          :sha     "a75db6db60eadcf609104a979b29499f54b3665b"}}
+ :deps    {clj-http-lite/clj-http-lite
+           {:git/url "https://github.com/babashka/clj-http-lite"
+            :sha     "a75db6db60eadcf609104a979b29499f54b3665b"}
+           babashka/babashka.pods
+           {:git/url "https://github.com/babashka/pods"
+            :sha     "0bffce3573d0361cf2592d65cefc8a4048454ff9"}}
  :aliases {:dev
-           {:extra-paths ["dev" "classes"]
-            :extra-deps  {cheshire {:mvn/version "5.8.1"}}}}}
+           {:extra-paths ["dev" "classes"]}}}
